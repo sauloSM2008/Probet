@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPACIAL ESPACIAL BOT PRO</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .text {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+        .values-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .random-value {
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+        }
+        .percentage-text {
+            background-color: rgba(0, 255, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 200px); /* Adjusted height to fit below the text containers */
+            border: none;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text" id="dynamicText">CALCULANDO...</div>
+    </div>
+    <div class="values-container" id="valuesContainer">
+        <div class="random-value percentage-text" id="percentageText">--</div>
+        <div class="random-value" id="randomValue2">--</div>
+        <div class="random-value" id="randomXValue">--</div>
+    </div>
+    <iframe src="https://media1.placard.co.mz/redirect.aspx?pid=2994&bid=1690"></iframe>
+    <script>
+        const texts = ["POSSÍVEL AZUL", "POSSÍVEL ROXO", "POSSÍVEL ROSA"];
+
+        function getRandomNumber(min, max) {
+            return (Math.random() * (max - min) + min).toFixed(2);
+        }
+
+        function changeText() {
+            // Ajustando a distribuição dos índices para reduzir a probabilidade de "POSSÍVEL ROSA"
+            const probabilities = [0.6, 0.35, 0.05]; // 60% para "POSSÍVEL AZUL", 35% para "POSSÍVEL ROXO", 5% para "POSSÍVEL ROSA"
+            const random = Math.random();
+            let cumulative = 0;
+            let selectedIndex;
+
+            for (let i = 0; i < probabilities.length; i++) {
+                cumulative += probabilities[i];
+                if (random < cumulative) {
+                    selectedIndex = i;
+                    break;
+                }
+            }
+
+            const selectedText = texts[selectedIndex];
+            let randomNumber;
+            if (selectedText === "POSSÍVEL AZUL") {
+                randomNumber = getRandomNumber(1.1, 1.99);
+            } else if (selectedText === "POSSÍVEL ROXO") {
+                randomNumber = getRandomNumber(2, 5.99);
+            } else if (selectedText === "POSSÍVEL ROSA") {
+                randomNumber = getRandomNumber(6, 10.99);
+            }
+            document.getElementById("dynamicText").innerText = `${selectedText}`;
+            document.getElementById("randomValue2").innerText = `${randomNumber}X`;
+        }
+
+        function getRandomPercentage(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function changePercentage() {
+            const randomPercentage = getRandomPercentage(30, 86);
+            document.getElementById("percentageText").innerText = `${randomPercentage}%`;
+        }
+
+        function changeRandomXValue() {
+            document.getElementById("randomXValue").innerText = `${getRandomNumber(1.5, 2.50)}X`;
+        }
+
+        setInterval(changeText, 18000); // 18000 ms = 18 segundos
+        setInterval(changePercentage, 18000); // 18000 ms = 18 segundos
+        setInterval(changeRandomXValue, 18000); // 18000 ms = 18 segundos
+    </script>
+</body>
+</html>

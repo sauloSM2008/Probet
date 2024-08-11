@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOT VENCEDOR</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #5ADFC6, #3E87F3);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: red;
+      margin-bottom: 20px;
+    }
+
+    .country-img {
+      
+      width: 100px;
+      margin: 20px 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .country-img:hover {
+      transform: scale(1.05);
+    }
+
+    #dialogOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    #dialog {
+      display: none;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      background: #fff;
+      z-index: 1000;
+      text-align: center;
+      max-width: 400px;
+      width: 80%;
+    }
+
+    .dialog-header {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .dialog-body {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .dialog-footer {
+      text-align: center;
+    }
+
+    .dialog-button {
+      padding: 10px 20px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .dialog-button:hover {
+      background: #0056b3;
+    }
+
+    .price-info {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .buy-button {
+      padding: 10px 20px;
+      background: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .buy-button:hover {
+      background: #218838;
+    }
+    
+    #pa {
+      background: #21222B;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>SEJA BEM VINDO AO BOT VENCEDOR</h1>
+  <h2 style="color: white; font-weight: bold; font-size: 15px">ESCOLHA O SEU PAÍS PARA JOGAR AVIATOR COM O BOT PROBET</h2>
+
+  <div id="pa">
+    
+    <img class="country-img" id="moz" onclick="moz()" src="moz.jpeg" alt="BOT HUNTER MOZ">
+    <center><h style="color: white">BOT PROBET</h></center>
+  </div>
+ 
+
+ 
+
+  <div id="dialogOverlay"></div>
+  <div id="dialog">
+    <div class="dialog-header">MÉTODO DE USO</div>
+    <div class="dialog-body">Crie uma nova conta usando o bot e faça o depósito usando o bot para que ele seja 100% acertivo</div>
+    <div class="dialog-footer">
+      <button class="dialog-button" id="okBtn">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const veri = "esa"; // Aqui deve estar a lógica correta para a verificação
+
+    if (veri !== "esta") {
+      window.addEventListener('load', function () {
+        document.getElementById('dialog').style.display = 'block';
+        document.getElementById('dialogOverlay').style.display = 'block';
+      });
+    }
+
+    document.getElementById('okBtn').addEventListener('click', function () {
+      document.getElementById('dialog').style.display = 'none';
+      document.getElementById('dialogOverlay').style.display = 'none';
+    });
+
+    document.getElementById('dialogOverlay').addEventListener('click', function () {
+      document.getElementById('dialog').style.display = 'none';
+      document.getElementById('dialogOverlay').style.display = 'none';
+    });
+
+    function moz() {
+      window.location.href = "escolha.html";
+    }
+
+    function ango() {
+      window.location.href = "ango.html";
+    }
+    
+    
+  </script>
+
+</body>
+
+</html>
